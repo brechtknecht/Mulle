@@ -71,20 +71,6 @@ export default {
   .content > *:nth-child(2) {
     transition-delay: 200ms;
   }
-
-  .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  }
-  .slide-fade-enter
-  /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-
-  .slide-fade-leave-to {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
 </style>
 
 

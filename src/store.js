@@ -9,7 +9,7 @@ export default new Vuex.Store({
       user_id: "id" + Math.random().toString(16).slice(2),
       currentQuestion: 0,
       isFinished: false,
-      answers: Array
+      answers: []
     },
     questions: [
       {
@@ -81,6 +81,9 @@ export default new Vuex.Store({
     questions: state => {
       return state.questions
     },
+    userSession: state => {
+      return state.userSession;
+    },
     currentQuestion: state => {
       return state.userSession.currentQuestion;
     } 
@@ -88,9 +91,16 @@ export default new Vuex.Store({
   mutations: {
     INCREMENT_CURRENT_QUESTION : (state, userSession) => {
       state.userSession.currentQuestion++;
+    },
+    COMMIT_ANSWER (state, answer) {
+      console.log(state.userSession.answers);
+      state.userSession.answers.push({
+        answer_id: state.userSession.currentQuestion,
+        answer: answer
+      });
     }
   },
   actions: {
-
+    
   }
 })

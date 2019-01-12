@@ -1,5 +1,9 @@
 <template>
-  <Question :question_id=currentQuestion :key=currentQuestion />
+  <div :class="{filter: isFilter}" class="fullscreen">
+    <transition name="fade" mode="out-in" appear>
+      <Question :question_id=currentQuestion :key=currentQuestion />
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -10,6 +14,11 @@ export default {
   name: 'question-template',
   components: {
     Question
+  },
+  data() {
+    return {
+      isFilter: true
+    }
   },
   computed: {
     currentQuestion () {

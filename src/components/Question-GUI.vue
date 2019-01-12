@@ -7,11 +7,11 @@
 <template>
     <div class="question-gui">
       <div class="question-display">
-        <h4 class="light">{{ questions[question_id - 1].question }}</h4>
+        <h4 class="light">{{ questionString }}</h4>
       </div>
       <div class="question-counter">
         <div class="dots">
-          <div v-for="(question, index) in questions" :key=question._id> 
+          <div v-for="(question, index) in questions" :key=question._id > 
             <div v-if="index < question_id" class="dot filled"></div>
             <div v-else class="dot"></div>
           </div>
@@ -30,11 +30,14 @@
 export default {
   name: 'Question-GUI',
   props: {
-    question_id: Number
+    question_id: Number,
   },
   computed: {
     questions(){
       return this.$store.getters.questions;
+    },
+    questionString (){
+      return this.questions[this.question_id].question;
     }
   }
 }

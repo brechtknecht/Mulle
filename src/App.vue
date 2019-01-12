@@ -226,3 +226,38 @@
     }
   }
 </style>
+
+<style lang="scss">
+  /* ANIMATIONS */
+  .slide-fade-leave-active {
+    transition: all .8s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  }
+  .slide-fade-enter
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  .slide-fade-leave-to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  .fade-delay-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+    transition-delay: 1.2s;
+  }
+
+  .fade-delay-enter, .fade-delay-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+</style>
+

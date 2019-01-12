@@ -22,7 +22,7 @@
 
         <QuestionGUI :question_id=currentQuestion._id />
 
-        <button @click="nextStep" class="light"> <span> WEITER </span> </button>
+        <button @click="endQuestion" class="light"> <span> WEITER </span> </button>
       </div>
     </transition>
   </div>
@@ -37,7 +37,7 @@ export default {
       QuestionGUI
   },
   props: {
-      question_id: String
+      question_id: Number
   },
   data () {
     return {
@@ -64,6 +64,10 @@ export default {
 
       //Enables and disables B/W Filter
       if(currentState >= 0) { this.isFilter = true; } else { this.isFilter = false; }
+    },
+    endQuestion () {
+        this.$store.commit('INCREMENT_CURRENT_QUESTION');
+        this.$emit('question-finished');
     }
   }
 }

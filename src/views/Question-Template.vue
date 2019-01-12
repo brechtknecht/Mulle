@@ -1,5 +1,5 @@
 <template>
-  <Question question_id="6"/>
+  <Question :question_id=currentQuestion :key=currentQuestion />
 </template>
 
 <script>
@@ -10,6 +10,11 @@ export default {
   name: 'question-template',
   components: {
     Question
+  },
+  computed: {
+    currentQuestion () {
+      return this.$store.getters.currentQuestion;
+    }
   }
 }
 </script>

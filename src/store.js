@@ -6,8 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     userSession: {
-      user_id: Number,
-      currentQuestion: Number,
+      user_id: "id" + Math.random().toString(16).slice(2),
+      currentQuestion: 0,
+      isFinished: false,
       answers: Array
     },
     questions: [
@@ -79,10 +80,15 @@ export default new Vuex.Store({
   getters: {
     questions: state => {
       return state.questions
-    }
+    },
+    currentQuestion: state => {
+      return state.userSession.currentQuestion;
+    } 
   },
   mutations: {
-
+    INCREMENT_CURRENT_QUESTION : (state, userSession) => {
+      state.userSession.currentQuestion++;
+    }
   },
   actions: {
 

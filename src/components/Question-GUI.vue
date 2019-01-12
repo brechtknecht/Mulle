@@ -30,7 +30,7 @@
 export default {
   name: 'Question-GUI',
   props: {
-    question_id: String
+    question_id: Number
   },
   computed: {
     questions(){

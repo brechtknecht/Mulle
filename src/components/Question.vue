@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade-delay" mode="out-in" appear>
-      <QuestionGUI v-if="state !== 'question'" :question_id=currentQuestion._id  />
+      <QuestionGUI v-if="state !== 'question'" :question_id=currentQuestion._id  @buttonTriggered="nextStep"/>
     </transition>
     <transition name="slide-fade" mode="out-in" appear>    
       <div v-if="state == 'question'" class="content" key="question">
@@ -13,16 +13,16 @@
       <div v-if="state == 'answering'" class="content" key="answering">
         <h2 class="light">Versuche mit dem Slider einzuschätzen vieviel jeder Deutsche am Tag wegwirft</h2>
 
-        <label>Antwort</label>
-        <input placeholder="0" v-model="answer"/> 
+        <div class="answer-debug-panel">
+          <label>Antwort</label>
+          <input placeholder="0" v-model="answer"/> 
+        </div>
 
-        <button @click="nextStep" class="light"> <span> WEITER </span> </button>
       </div>
       <div v-if="state == 'answer'" class="content" key="answer">
         <h3 class="light"> {{ currentQuestion.answer.string }} </h3>
-        <h4 class="light"> Deine Antwort: {{ userSession.answers[userSession.currentQuestion].answer }} </h4>
+        <h5 class="light"> Deine Antwort: {{ userSession.answers[userSession.currentQuestion].answer }} </h5>
 
-        <button @click="endQuestion" class="light"> <span> NÄCHSTE FRAGE </span> </button>
       </div>      
     </transition>
   </div>
@@ -44,7 +44,7 @@ export default {
       state: String,
       sequence: ['question', 'answering', 'answer'],
       currentQuestion: Object,
-      answer: String
+      answer: ''
     }
   },
    mounted (){
@@ -66,6 +66,10 @@ export default {
         this.$store.commit('COMMIT_ANSWER', this.answer);
       }
 
+      if(this.state == 'answer'){
+        this.endQuestion();
+      }
+
       let currentState = this.sequence.indexOf(this.state);
       this.state = this.sequence[currentState + 1];
     },
@@ -75,6 +79,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .answer-debug-panel {
+    display: flex;
+    justify-content: center;
+    label {
+      color: #fff;
+    }
+  }
+</style>
+
 
 
 

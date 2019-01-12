@@ -23,6 +23,9 @@
           <span class="light hairline"> {{ questions.length }} </span>
         </div>
       </div>
+      <div class="buttons">
+        <button @click="$emit('buttonTriggered')" class="light"> <span> WEITER </span> </button>
+      </div>
     </div>
 </template>
 
@@ -88,6 +91,11 @@ export default {
           text-transform: uppercase;
         }
       }
+    }
+    .buttons {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
     }
   }
   

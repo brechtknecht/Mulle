@@ -75,7 +75,7 @@
   $primary-dark: #1E1E1E;
   $test: red;
 
-  h1, h3, h4, h5, h6, span {
+  h1, h3, h5, h6, span {
     font-family: "Suisse-Sign";
   }
 
@@ -111,6 +111,11 @@
     font-size: 2.5rem;
     margin-top: 1.5rem;
   }
+
+  h5 {
+    font-family: 'Suisse-Mono-Light';
+    font-size: 1rem;
+  } 
 
 
   h1, h3 {

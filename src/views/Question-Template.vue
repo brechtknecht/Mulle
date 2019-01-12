@@ -16,6 +16,7 @@ export default {
       return this.$store.getters.currentQuestion;
     }
   }
+
 }
 </script>
 

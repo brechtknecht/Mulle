@@ -3,7 +3,7 @@
     <transition name="fade-delay" mode="out-in" appear>
       <QuestionGUI v-if="state !== 'question'" :question_id=currentQuestion._id  @buttonTriggered="nextStep"/>
     </transition>
-    <transition name="slide-fade" mode="out-in" appear>    
+    <transition name="slide-fade" mode="out-in">    
       <div v-if="state == 'question'" class="content" key="question">
         <h2 class="light"> Frage {{ currentQuestion._id }} </h2>
         <h3 class="light"> {{ currentQuestion.question }} </h3>
@@ -11,17 +11,21 @@
         <button @click="nextStep" class="light"> <span> START </span> </button>
       </div>
       <div v-if="state == 'answering'" class="content" key="answering">
-        <h2 class="light">Versuche mit dem Slider einzuschätzen vieviel jeder Deutsche am Tag wegwirft</h2>
+        
+        <div v-if="question_id == 5">
+          <massComparison />
+        </div>
+      
 
-        <div class="answer-debug-panel">
+        <!--<div class="answer-debug-panel">
           <label>Antwort</label>
           <input placeholder="0" v-model="answer"/> 
-        </div>
+        </div>-->
 
       </div>
       <div v-if="state == 'answer'" class="content" key="answer">
         <h3 class="light"> {{ currentQuestion.answer.string }} </h3>
-        <h5 class="light"> Deine Antwort: {{ userSession.answers[userSession.currentQuestion].answer }} </h5>
+        <h5 class="light"> Deine Antwort: {{ stringToDigitNumber(userSession.answers[userSession.currentQuestion].answer) }} </h5>
 
       </div>      
     </transition>
@@ -29,12 +33,14 @@
 </template>
 
 <script>
-import QuestionGUI from '@/components/Question-GUI.vue'
+import QuestionGUI from '@/components/Question-GUI.vue';
+import massComparison from '@/components/interactions/mass-comparison.vue';
 
 export default {
   name: 'question',
   components: {
-      QuestionGUI
+      QuestionGUI,
+      massComparison
   },
   props: {
       question_id: Number
@@ -75,6 +81,9 @@ export default {
     },
     endQuestion () {
       this.$store.commit('INCREMENT_CURRENT_QUESTION');
+    },
+    stringToDigitNumber (number) {
+      return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
     }
   }
 }

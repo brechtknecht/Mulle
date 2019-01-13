@@ -115,6 +115,9 @@
   h5 {
     font-family: 'Suisse-Mono-Light';
     font-size: 1rem;
+    &.count {
+      font-size: 2rem;
+    }
   } 
 
 

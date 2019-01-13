@@ -40,7 +40,7 @@ export default {
       return this.$store.getters.questions;
     },
     questionString (){
-      return this.questions[this.question_id].question;
+      return this.questions[this.question_id - 1].question;
     }
   }
 }

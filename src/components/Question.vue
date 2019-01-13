@@ -17,13 +17,13 @@
         </div>
       
 
-        <!--<div class="answer-debug-panel">
+        <div v-else class="answer-debug-panel">
           <label>Antwort</label>
           <input placeholder="0" v-model="answer"/> 
-        </div>-->
+        </div>
 
       </div>
-      <div v-if="state == 'answer'" class="content" key="answer">
+      <div v-if="state == 'answer'" class="content answer" key="answer">
         <h3 class="light"> {{ currentQuestion.answer.string }} </h3>
         <h5 class="light"> Deine Antwort: {{ stringToDigitNumber(userSession.answers[userSession.currentQuestion].answer) }} </h5>
 

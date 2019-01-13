@@ -232,6 +232,9 @@
     .content {
       margin-top: -5.5rem;
     }
+    .answer {
+      max-width: 670px;
+    }
   }
 </style>
 

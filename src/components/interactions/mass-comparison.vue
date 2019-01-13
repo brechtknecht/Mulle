@@ -77,7 +77,6 @@ export default {
     
     this.World.add(engine.world, [ground, left_wall, right_wall]);
 
-4
     // run the engine
     this.Engine.run(engine);
 

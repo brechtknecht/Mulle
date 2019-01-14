@@ -11,11 +11,19 @@
         <button @click="nextStep" class="light"> <span> START </span> </button>
       </div>
       <div v-if="state == 'answering'" class="content" key="answering">
+
+
+        <div v-if="question_id == 0">
+          <mullePerPerson />
+        </div>
+
+        <div v-else-if="question_id == 4">
+          <mulleDistribution />
+        </div>
         
-        <div v-if="question_id == 5">
+        <div v-else-if="question_id == 5">
           <massComparison />
         </div>
-      
 
         <div v-else class="answer-debug-panel">
           <label>Antwort</label>
@@ -35,12 +43,16 @@
 <script>
 import QuestionGUI from '@/components/Question-GUI.vue';
 import massComparison from '@/components/interactions/mass-comparison.vue';
+import mullePerPerson from '@/components/interactions/mulle-per-person.vue';
+import mulleDistribution from '@/components/interactions/mulle-distribution.vue';
 
 export default {
   name: 'question',
   components: {
       QuestionGUI,
-      massComparison
+      massComparison,
+      mullePerPerson,
+      mulleDistribution
   },
   props: {
       question_id: Number

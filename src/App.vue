@@ -9,6 +9,9 @@
 </template>
 
 <style lang="scss">
+  @import './assets/scss/typography.scss';
+
+
   body {
     margin: 0; padding: 0;
   }

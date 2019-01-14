@@ -3,11 +3,10 @@
 
 -->
 
-
 <template>
     <div class="question-gui">
       <div class="question-display">
-        <h4 class="light">{{ questionString }}</h4>
+        <h4 class="light">{{ currentQuestion.question }}</h4>
       </div>
       <div class="question-counter">
         <div class="dots">
@@ -35,12 +34,17 @@ export default {
   props: {
     question_id: Number,
   },
+  data(){
+    return {
+      currentQuestion: Object
+    }
+  },
+  mounted(){
+    this.currentQuestion = this.$store.getters.questions[this.question_id - 1];
+  },
   computed: {
     questions(){
       return this.$store.getters.questions;
-    },
-    questionString (){
-      return this.questions[this.question_id - 1].question;
     }
   }
 }

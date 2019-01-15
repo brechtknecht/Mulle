@@ -46,6 +46,8 @@ import massComparison from '@/components/interactions/mass-comparison.vue';
 import mullePerPerson from '@/components/interactions/mulle-per-person.vue';
 import mulleDistribution from '@/components/interactions/mulle-distribution.vue';
 
+import router from '@/router'
+
 export default {
   name: 'question',
   components: {
@@ -82,10 +84,11 @@ export default {
       console.log("Next Step 👍");
       if(this.state == 'answering'){
         this.$store.commit('COMMIT_ANSWER', this.answer);
-      }
+      } 
 
       if(this.state == 'answer'){
         this.endQuestion();
+        router.push('/question/' + this.userSession.currentQuestion);
       }
 
       let currentState = this.sequence.indexOf(this.state);

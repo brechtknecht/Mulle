@@ -45,6 +45,9 @@ export default {
   computed: {
     questions(){
       return this.$store.getters.questions;
+    },
+    userSession(){
+      return this.$store.getters.userSession;
     }
   }
 }

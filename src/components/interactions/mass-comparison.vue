@@ -53,7 +53,7 @@ export default {
     this.engine = engine;
 
     // create a renderer
-    var render = this.Render.create({
+    this.render = this.Render.create({
         element: document.querySelector('.matter-js'),
         engine: engine,
         options: {
@@ -125,8 +125,8 @@ export default {
     endQuestion() {
       var endLine = this.Bodies.rectangle(60, -30, this.canvasWidth - 30, 30, {
         render: {
-          color: 'transparent',
-          strokeStyle: white,
+          fillStyle: 'transparent',
+          strokeStyle: 'white',
           lineWidth: 2
         }
       });

@@ -1,7 +1,7 @@
 <template>
   <div :class="{filter: isFilter}" class="fullscreen">
     <transition name="fade" mode="out-in" appear>
-      <Question :question_id=currentQuestion :key=currentQuestion />
+      <Question :question_id=parseInt($route.params.question_id) :key=$route.params.question_id />
     </transition>
   </div>
 </template>

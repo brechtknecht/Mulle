@@ -21,7 +21,7 @@
         <p class="light">
           Teste dich selbst und vergleiche dich mit anderen. Erfahre Fakten die dir so noch gar nicht bewusst waren. Die Idee von diesem Test ist allerdings nicht irgendjemanden zu beängstigen. Vielmehr geht es darum zu sensibilisieren. Wir können alle einen klaren, faktenorientierten Blick auf diese Thematik gut gebrauchen, denn vieles ist nicht bekannt.
         </p>
-        <router-link to="/question">
+        <router-link to="/question/0">
           <button @click="nextStep" class="light"> <span> Auf Geht's </span> </button>
         </router-link>
       </div>

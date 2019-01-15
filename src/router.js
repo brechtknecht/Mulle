@@ -16,6 +16,9 @@ export default new Router({
       path: '/question',
       name: 'question-template',
       component: QuestionTemplate
+    }, {
+      path: '/question/:question_id',
+      component: QuestionTemplate
     }
   ]
 })

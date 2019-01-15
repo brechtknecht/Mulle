@@ -85,7 +85,10 @@ export default {
   },
   watch: {
     totalWeight() {
-        var answer = this.totalWeight;
+        var answer = {
+          value : this.totalWeight,
+          unit : 'Tonnen'
+        }
         this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
       }
   },

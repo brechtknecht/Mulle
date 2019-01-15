@@ -1,14 +1,9 @@
 <template>
   <div class="interaction">
-    <h5 class="light count"> {{ isLeft * 2 }}% :{{ isRight * 2 }}%</h5>
+    <h5 class="light count"> {{ isLeft * 4 }}% :{{ isRight * 4 }}%</h5>
     <h4 v-if="mulleCount > 1" class="light mulleCount">{{ mulleCount }} Schiffe ins Meer geschmissen</h4>
     <h4 v-else class="light mulleCount">Im Gebrauch von Menschen vs. Auf den Müllhalden und Weltmeeren deponiert.</h4>
     <div class="matter-js"></div>
-    <transition name="fade" mode="out-in" appear>
-      <div class="buttons-inline" v-if="isRunning">
-        <button class="light"  @click="addCubes">+ Mehr Müll</button>
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -87,10 +82,12 @@ export default {
     var left_wall   = this.Bodies.rectangle(0,   0,  60, this.canvasWidth, options);
     var right_wall  = this.Bodies.rectangle(1270,   0,  60, this.canvasWidth, options);
 
-    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight - 100,  20, this.canvasHeight, {
+    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight + 100 ,  20, this.canvasHeight, {
         isStatic: true,
         render: {
-            fillStyle: 'red'
+          fillStyle: 'transparent',
+          strokeStyle: 'white',
+          lineWidth: 2
         }
     });
     
@@ -102,7 +99,7 @@ export default {
       middle_line
     ]);
 
-    for(var i = 0; i < 50; i++){
+    for(var i = 0; i < 25; i++){
         this.objects.push(this.Bodies.rectangle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 40, 40));
     }
 
@@ -136,7 +133,10 @@ export default {
   },
   watch : {
       isLeft() {
-        var answer = this.isLeft * 2;
+        var answer = {
+          value : this.isLeft * 4,
+          unit : '%'
+        }
         this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
       }
   },
@@ -154,32 +154,6 @@ export default {
 
         this.isLeft = numberLeft;
         this.isRight = numberRight;
-    },
-    addCubes () {
-      var objects = [];
-      let body = this.Bodies;
-      let scale = 0.5;
-      var CUBE_COUNT = 1;
-
-      for (var i = 0; i < CUBE_COUNT; i++){
-        let object = body.rectangle(this.canvasWidth / 4, 40, 40, 40, { 
-            angle: Math.floor((Math.random() * 1) - 45),
-            restitution: 0,
-            slop:0,
-            
-            /*render: {
-              sprite: {
-                texture: 'http://döner.jetzt/http-image-resources/texture.png',
-                xScale: scale,
-                yScale: scale
-              }
-            }*/
-        })
-        objects.push(object);
-        this.objects.push(object);
-      } 
-
-      this.World.add(this.engine.world, objects);
     },
     endQuestion() {
       this.isRunning = false;

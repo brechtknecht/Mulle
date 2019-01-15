@@ -33,7 +33,11 @@
       </div>
       <div v-if="state == 'answer'" class="content answer" key="answer">
         <h3 class="light"> {{ currentQuestion.answer.string }} </h3>
-        <h5 class="light"> Deine Antwort: {{ stringToDigitNumber(userSession.answers[userSession.currentQuestion].answer) }} </h5>
+        <h5 class="light"> 
+          Deine Antwort: 
+          {{ stringToDigitNumber(userSession.answers[userSession.currentQuestion].answer.value) }}
+          {{ userSession.answers[userSession.currentQuestion].answer.unit }}
+        </h5>
 
       </div>      
     </transition>
@@ -98,7 +102,9 @@ export default {
       this.$store.commit('INCREMENT_CURRENT_QUESTION');
     },
     stringToDigitNumber (number) {
-      return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+      if(number != null){
+        return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+      }
     }
   }
 }

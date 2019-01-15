@@ -87,10 +87,12 @@ export default {
     var left_wall   = this.Bodies.rectangle(0,   0,  60, this.canvasWidth, options);
     var right_wall  = this.Bodies.rectangle(1270,   0,  60, this.canvasWidth, options);
 
-    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight - 100,  20, this.canvasHeight, {
+    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight + 100 ,  20, this.canvasHeight, {
         isStatic: true,
         render: {
-            fillStyle: 'red'
+          fillStyle: 'transparent',
+          strokeStyle: 'white',
+          lineWidth: 2
         }
     });
     
@@ -102,7 +104,7 @@ export default {
       middle_line
     ]);
 
-    for(var i = 0; i < 50; i++){
+    for(var i = 0; i < 10; i++){
       this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20));
     }
 
@@ -136,7 +138,10 @@ export default {
   },
   watch : {
       totalWeight() {
-        var answer = this.totalWeight;
+        var answer = {
+          value : this.totalWeight,
+          unit : 'Gramm'
+        }
         this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
       },
       isRight (){

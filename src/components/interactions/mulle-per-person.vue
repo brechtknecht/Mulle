@@ -32,6 +32,7 @@ export default {
       Runner: Object,
       Composites: Object,
       runner: Object,
+      render: Object,
       engine: Object,
       bodyPositions: Object,
       isLeft: Number,
@@ -58,18 +59,17 @@ export default {
     this.Mouse = Matter.Mouse;
     this.MouseConstraint = Matter.MouseConstraint;
 
-   
     // create an engine
     var engine = this.Engine.create();
     this.runner = this.Runner.create();
     this.engine = engine;
 
     // create a renderer
-    var render = this.Render.create({
+    this.render = this.Render.create({
         element: document.querySelector('.matter-js'),
         engine: engine,
         options: {
-          wireframes: true,
+          wireframes: false,
           width: this.canvasWidth,
           height: this.canvasHeight,
           background: 'transparent'
@@ -89,36 +89,46 @@ export default {
     var left_wall   = this.Bodies.rectangle(0,   0,  60, this.canvasWidth, options);
     var right_wall  = this.Bodies.rectangle(1270,   0,  60, this.canvasWidth, options);
 
-    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight - 100,  20, this.canvasHeight, options);
+    var middle_line = this.Bodies.rectangle(this.canvasWidth / 2,   this.canvasHeight - 100,  20, this.canvasHeight, {
+        isStatic: true,
+        render: {
+            fillStyle: 'red'
+        }
+    });
     
-    this.World.add(engine.world, [ground, ceiling, left_wall, right_wall, middle_line]);
+    this.World.add(engine.world, [
+      ground,
+      ceiling,
+      left_wall,
+      right_wall,
+      middle_line
+    ]);
 
     for(var i = 0; i < 50; i++){
-        this.objects.push(this.Bodies.rectangle((i * 40) % this.canvasWidth / 4, 0, 40, 40));
+      this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20));
     }
 
     this.World.add(engine.world, this.objects);
 
     // add mouse control
-    var mouse = this.Mouse.create(render.canvas),
-        mouseConstraint = this.MouseConstraint.create(engine, {
-            mouse: mouse,
-            constraint: {
-                stiffness: 0.2,
-                render: {
-                    visible: false
-                }
-            }
-        });
+    var mouse = this.Mouse.create(this.render.canvas),
+      mouseConstraint = this.MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+          stiffness: 0.2,
+          render: {
+            visible: false
+          }
+        }
+      });
 
     this.World.add(engine.world, mouseConstraint);
-
 
     // run the engine
     this.Engine.run(engine);
 
     // run the renderer
-    this.Render.run(render);
+    this.Render.run(this.render);
 
     this.$nextTick(function () {
             window.setInterval(() => {
@@ -129,7 +139,6 @@ export default {
   watch : {
       isRight (){
           var randomSeed = Math.floor((Math.random() * 100) + 10);
-
           this.totalWeight = this.isRight * 50;
       }
   },
@@ -185,6 +194,14 @@ export default {
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
     }
+  },
+  destroyed() {
+    setTimeout(function(){ 
+      this.render.canvas.remove();
+      this.render.canvas = null;
+      this.render.context = null;
+      this.render.textures = {};
+    }, 2000);
   }
 }
 </script>

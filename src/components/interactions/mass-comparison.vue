@@ -28,6 +28,7 @@ export default {
       World: Object,
       Bodies: Object,
       engine: Object,
+      render: Object,
       isRunning: true,
       objectWeight: 200000,
       totalWeight: 0,
@@ -81,7 +82,7 @@ export default {
     this.Engine.run(engine);
 
     // run the renderer
-    this.Render.run(render);
+    this.Render.run(this.render);
   },
   methods: {
     addCube() {
@@ -93,7 +94,7 @@ export default {
 
       for (var i = 0; i < CUBE_COUNT; i++){
         objects.push(  
-          body.rectangle(this.canvasWidth / 2, -100, 250 * scale, 30 * scale, { 
+          body.rectangle(this.canvasWidth / 2, -100, 250 * scale, 40 * scale, { 
             angle: Math.floor((Math.random() * 1) - 45),
             restitution: 0,
             slop:0,
@@ -122,7 +123,13 @@ export default {
       this.World.add(this.engine.world, objects);
     },
     endQuestion() {
-      var endLine = this.Bodies.rectangle(60, -30, this.canvasWidth - 30, 30);
+      var endLine = this.Bodies.rectangle(60, -30, this.canvasWidth - 30, 30, {
+        render: {
+          color: 'transparent',
+          strokeStyle: white,
+          lineWidth: 2
+        }
+      });
       this.World.add(this.engine.world, endLine);
       
       this.isRunning = false;

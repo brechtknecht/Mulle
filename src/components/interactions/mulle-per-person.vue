@@ -7,7 +7,6 @@
     <transition name="fade" mode="out-in" appear>
       <div class="buttons-inline">
         <button class="light"  @click="addCubes">+ Mehr Müll</button>
-        <button class="light"  @click="endQuestion">Fertig!</button>
       </div>
     </transition>
   </div>
@@ -136,6 +135,10 @@ export default {
         })
   },
   watch : {
+      totalWeight() {
+        var answer = this.totalWeight;
+        this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
+      },
       isRight (){
           var randomSeed = Math.floor((Math.random() * 100) + 10);
           this.totalWeight = this.isRight * 50;
@@ -181,12 +184,6 @@ export default {
       } 
 
       this.World.add(this.engine.world, objects);
-    },
-    endQuestion() {
-      this.answer();
-    },
-    answer() {
-      this.$store.commit('COMMIT_ANSWER', this.totalWeight);
     },
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");

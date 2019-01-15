@@ -7,7 +7,6 @@
     <transition name="fade" mode="out-in" appear>
       <div class="buttons-inline" v-if="isRunning">
         <button class="light"  @click="addCube">+ Kreuzfahrtschiff</button>
-        <button class="light"  @click="endQuestion">Fertig!</button>
       </div>
     </transition>
   </div>
@@ -84,6 +83,12 @@ export default {
     // run the renderer
     this.Render.run(this.render);
   },
+  watch: {
+    totalWeight() {
+        var answer = this.totalWeight;
+        this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
+      }
+  },
   methods: {
     addCube() {
       var objects = [];
@@ -133,10 +138,6 @@ export default {
       this.World.add(this.engine.world, endLine);
       
       this.isRunning = false;
-      this.answer();
-    },
-    answer() {
-      this.$store.commit('COMMIT_ANSWER', this.totalWeight);
     },
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");

@@ -83,7 +83,7 @@ export default {
     nextStep: function() {
       console.log("Next Step 👍");
       if(this.state == 'answering'){
-        this.$store.commit('COMMIT_ANSWER', this.answer);
+        this.$store.commit('PUSH_ANSWER');
       } 
 
       if(this.state == 'answer'){

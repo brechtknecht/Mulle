@@ -7,7 +7,6 @@
     <transition name="fade" mode="out-in" appear>
       <div class="buttons-inline" v-if="isRunning">
         <button class="light"  @click="addCubes">+ Mehr Müll</button>
-        <button class="light"  @click="endQuestion">Fertig!</button>
       </div>
     </transition>
   </div>
@@ -40,7 +39,6 @@ export default {
       isRunning: true,
       objects: [],
       objectWeight: 200000,
-      totalWeight: 0,
       mulleCount: 0,
       canvasWidth: 1300,
       canvasHeight: 500
@@ -137,10 +135,9 @@ export default {
         })
   },
   watch : {
-      isRight (){
-          var randomSeed = Math.floor((Math.random() * 100) + 10);
-
-          this.totalWeight = this.isRight * 50;
+      isLeft() {
+        var answer = this.isLeft * 2;
+        this.$store.commit('COMMIT_CURRENT_ANSWER', answer);
       }
   },
   methods: {
@@ -186,10 +183,6 @@ export default {
     },
     endQuestion() {
       this.isRunning = false;
-      this.answer();
-    },
-    answer() {
-      this.$store.commit('COMMIT_ANSWER', this.isLeft);
     },
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");

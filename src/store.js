@@ -9,6 +9,7 @@ export default new Vuex.Store({
       user_id: "id" + Math.random().toString(16).slice(2),
       currentQuestion: 0,
       isFinished: false,
+      currentAnswer: String,
       answers: []
     },
     questions: [
@@ -92,14 +93,16 @@ export default new Vuex.Store({
     INCREMENT_CURRENT_QUESTION : (state, userSession) => {
       state.userSession.currentQuestion++;
     },
-    COMMIT_ANSWER (state, answer) {
-
+    COMMIT_CURRENT_ANSWER: (state, value) => {
+      state.userSession.currentAnswer = value;
+    },
+    PUSH_ANSWER: (state) => {
       if (state.userSession.answers[state.userSession.currentQuestion] == undefined){
         state.userSession.answers.push({
           answer_id: state.userSession.currentQuestion,
-          answer: answer
+          answer: state.userSession.currentAnswer
         });
-        
+
         console.log('Answer commited ✅')
       }
     }

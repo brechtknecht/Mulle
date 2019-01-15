@@ -93,11 +93,15 @@ export default new Vuex.Store({
       state.userSession.currentQuestion++;
     },
     COMMIT_ANSWER (state, answer) {
-      console.log(state.userSession.answers);
-      state.userSession.answers.push({
-        answer_id: state.userSession.currentQuestion,
-        answer: answer
-      });
+
+      if (state.userSession.answers[state.userSession.currentQuestion] == undefined){
+        state.userSession.answers.push({
+          answer_id: state.userSession.currentQuestion,
+          answer: answer
+        });
+        
+        console.log('Answer commited ✅')
+      }
     }
   },
   actions: {

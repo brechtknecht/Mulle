@@ -136,7 +136,6 @@ export default {
       this.answer();
     },
     answer() {
-      console.log('Answer commited ✅')
       this.$store.commit('COMMIT_ANSWER', this.totalWeight);
     },
     stringToDigitNumber (number) {

@@ -5,7 +5,7 @@
     <h4 v-else class="light mulleCount">Wirf so viel weg, wie du glaubst jeden Tag an Gewicht zu verbrauchen.</h4>
     <div class="matter-js"></div>
     <transition name="fade" mode="out-in" appear>
-      <div class="buttons-inline" v-if="isRunning">
+      <div class="buttons-inline">
         <button class="light"  @click="addCubes">+ Mehr Müll</button>
         <button class="light"  @click="endQuestion">Fertig!</button>
       </div>
@@ -37,7 +37,6 @@ export default {
       bodyPositions: Object,
       isLeft: Number,
       isRight: Number,
-      isRunning: true,
       objects: [],
       objectWeight: 200000,
       totalWeight: 0,
@@ -184,11 +183,9 @@ export default {
       this.World.add(this.engine.world, objects);
     },
     endQuestion() {
-      this.isRunning = false;
       this.answer();
     },
     answer() {
-      console.log('Answer commited ✅')
       this.$store.commit('COMMIT_ANSWER', this.totalWeight);
     },
     stringToDigitNumber (number) {

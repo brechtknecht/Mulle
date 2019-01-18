@@ -138,7 +138,7 @@ export default {
   },
   watch : {
       totalWeight() {
-        var answer = {
+        let answer = {
           value : this.totalWeight,
           unit : 'Gramm'
         }

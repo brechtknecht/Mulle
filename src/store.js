@@ -110,7 +110,8 @@ export default new Vuex.Store({
           }
         });
         
-        state.userSession.currentAnswer = null;
+        
+        state.userSession.currentAnswer = {};
 
         console.log('Answer commited ✅')
       }

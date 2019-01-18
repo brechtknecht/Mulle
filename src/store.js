@@ -79,11 +79,33 @@ export default new Vuex.Store({
           number: '< 1%'
         }
       }
-    ]
+    ],
+    history: {
+      2014: {
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg/2880px-Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg',
+          text: 'Deutschland gewinnt die Fußball-Weltmeisterschaft 2014.'
+      },
+      2000: {
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg/2880px-Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg',
+          text: 'Eröffnung der Öresundverbindung zwischen Kopenhagen und Malmö '
+      },
+      1968: {
+          image: 'https://www.musikexpress.de/wp-content/uploads/2018/04/04/13/martin-luther-king.jpg',
+          text: 'Martin Luther King wird bei dem Attentat in Memphis, Tennessee erschossen.'
+      },
+      1945: {
+          image: 'https://www.historyonthenet.com/wp-content/uploads/2014/11/450223-M-0000R-001.jpg',
+          text: 'Der 2. Weltkrieg endet'
+      }
+  }
+  
   },
   getters: {
     questions: state => {
       return state.questions
+    },
+    history: state =>{
+      return state.history
     },
     userSession: state => {
       return state.userSession;

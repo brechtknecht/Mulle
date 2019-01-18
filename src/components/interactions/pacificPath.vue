@@ -166,7 +166,7 @@
         },
         watch: {
             countryCount() {
-                if(this.countryCount > 1){
+                if(this.countryCount > 0){
                     this.$parent.enableContinue();
                 } else {
                     this.$parent.disableContinue();
@@ -197,7 +197,7 @@
         position: relative;
         margin: 0 auto;
         bottom: 3rem;
-        width: 200px;
+        width: 400px;
         left: 0;
         right: 0;
     }
@@ -214,7 +214,12 @@
         bottom: 0;
         max-width: 80vh;
         height: 100vh;
+        opacity: 0;
         margin: 0 auto;
+        animation: 500ms jump-fix cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-delay: 900ms;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards; 
         .grid-element {
             flex: .5 .5 10%;
             padding: 0 1rem;
@@ -231,6 +236,14 @@
                 }
             }
         }
+
+       @keyframes jump-fix {
+           0% {
+               opacity: 0;
+           } 100% {
+               opacity: 1;
+           }
+       } 
     }
 </style>
 

@@ -21,6 +21,10 @@
           <pacificPath />
         </div>
 
+        <div v-else-if="question_id == 2" @continuable="enableContinue">
+          <bagDestroy />
+        </div>
+
         <div v-else-if="question_id == 3" @continuable="enableContinue">
           <countrySelect />
         </div>
@@ -59,6 +63,7 @@ import mullePerPerson from '@/components/interactions/mulle-per-person.vue';
 import mulleDistribution from '@/components/interactions/mulle-distribution.vue';
 import pacificPath from '@/components/interactions/pacificPath.vue';
 import countrySelect from '@/components/interactions/country-select.vue';
+import bagDestroy from '@/components/interactions/bag-destroy.vue';
 
 import router from '@/router'
 
@@ -70,7 +75,8 @@ export default {
       mullePerPerson,
       mulleDistribution,
       pacificPath,
-      countrySelect
+      countrySelect,
+      bagDestroy
   },
   props: {
       question_id: Number

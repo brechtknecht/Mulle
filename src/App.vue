@@ -14,6 +14,7 @@
 
   body {
     margin: 0; padding: 0;
+    overflow: hidden;
   }
 
   #app {
@@ -243,6 +244,11 @@
 
 <style lang="scss">
   /* ANIMATIONS */
+  /* SLIDE FADE */
+  .slide-fade-enter-active {
+    transition: all .8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
   .slide-fade-leave-active {
     transition: all .8s cubic-bezier(0.55, 0.085, 0.68, 0.53);
   }
@@ -256,6 +262,8 @@
     transform: translateY(-30px);
     opacity: 0;
   }
+
+  /* FADE DELAY */
 
   .fade-delay-enter-active, .fade-leave-active {
     transition: opacity .5s;
@@ -271,6 +279,20 @@
   }
   
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  /* FADE DOWN */
+  .fade-down-enter-active,
+  .fade-down-leave-active {
+    transition: transform .5s;
+  }
+  
+  .fade-down-enter,
+  .fade-down-leave-to
+  /* .fade-leave-active below version 2.1.8 */
+  {
+    transform: scale(1.2);
     opacity: 0;
   }
 </style>

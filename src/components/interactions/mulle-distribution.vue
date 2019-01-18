@@ -133,6 +133,12 @@ export default {
   },
   watch : {
       isLeft() {
+        if(this.isRight > 0){
+          this.$parent.enableContinue();
+        } else {
+          this.$parent.disableContinue();
+        }
+        
         var answer = {
           value : this.isLeft * 4,
           unit : '%'

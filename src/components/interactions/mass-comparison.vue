@@ -85,6 +85,12 @@ export default {
   },
   watch: {
     totalWeight() {
+        if(this.totalWeight > 0){
+          this.$parent.enableContinue();
+        } else {
+          this.$parent.disableContinue();
+        }
+
         var answer = {
           value : this.totalWeight,
           unit : 'Tonnen'

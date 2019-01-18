@@ -67,7 +67,7 @@ export default {
         element: document.querySelector('.matter-js'),
         engine: engine,
         options: {
-          wireframes: false,
+          wireframes: true,
           width: this.canvasWidth,
           height: this.canvasHeight,
           background: 'transparent'
@@ -138,6 +138,13 @@ export default {
   },
   watch : {
       totalWeight() {
+        if(this.totalWeight > 0){
+          this.$parent.enableContinue();
+        } else {
+          this.$parent.disableContinue();
+        }
+
+        
         let answer = {
           value : this.totalWeight,
           unit : 'Gramm'

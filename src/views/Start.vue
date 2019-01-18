@@ -58,12 +58,6 @@ export default {
 </script>
 
 <style lang="scss">
-  /* Enter and leave animations can use different */
-  /* durations and timing functions.              */
-  .slide-fade-enter-active {
-    transition: all .8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-
   .content > *:nth-child(1) {
     transition-delay: 100ms;
   }

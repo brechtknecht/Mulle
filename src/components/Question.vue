@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade-delay" mode="out-in" appear>
-      <QuestionGUI v-if="state !== 'question'" :question_id=currentQuestion._id  @buttonTriggered="nextStep"/>
+      <QuestionGUI v-if="state !== 'question'" :question_id=currentQuestion._id  :continuable=isContinuable @buttonTriggered="nextStep"/>
     </transition>
     <transition name="slide-fade" mode="out-in">    
       <div v-if="state == 'question'" class="content" key="question">
@@ -13,15 +13,23 @@
       <div v-if="state == 'answering'" class="content" key="answering">
 
 
-        <div v-if="question_id == 0">
+        <div v-if="question_id == 0" @continuable="enableContinue">
           <mullePerPerson />
         </div>
 
-        <div v-else-if="question_id == 4">
+        <div v-else-if="question_id == 1" @continuable="enableContinue">
+          <pacificPath />
+        </div>
+
+        <div v-else-if="question_id == 3" @continuable="enableContinue">
+          <countrySelect />
+        </div>
+
+        <div v-else-if="question_id == 4" @continuable="enableContinue">
           <mulleDistribution />
         </div>
         
-        <div v-else-if="question_id == 5">
+        <div v-else-if="question_id == 5" @continuable="enableContinue">
           <massComparison />
         </div>
 
@@ -49,6 +57,8 @@ import QuestionGUI from '@/components/Question-GUI.vue';
 import massComparison from '@/components/interactions/mass-comparison.vue';
 import mullePerPerson from '@/components/interactions/mulle-per-person.vue';
 import mulleDistribution from '@/components/interactions/mulle-distribution.vue';
+import pacificPath from '@/components/interactions/pacificPath.vue';
+import countrySelect from '@/components/interactions/country-select.vue';
 
 import router from '@/router'
 
@@ -58,7 +68,9 @@ export default {
       QuestionGUI,
       massComparison,
       mullePerPerson,
-      mulleDistribution
+      mulleDistribution,
+      pacificPath,
+      countrySelect
   },
   props: {
       question_id: Number
@@ -68,7 +80,8 @@ export default {
       state: String,
       sequence: ['question', 'answering', 'answer'],
       currentQuestion: Object,
-      answer: ''
+      answer: '',
+      isContinuable: false
     }
   },
    mounted (){
@@ -92,11 +105,18 @@ export default {
 
       if(this.state == 'answer'){
         this.endQuestion();
+        this.isContinuable = false;
         router.push('/question/' + this.userSession.currentQuestion);
       }
 
       let currentState = this.sequence.indexOf(this.state);
       this.state = this.sequence[currentState + 1];
+    },
+    enableContinue (){
+      this.isContinuable = true;
+    },
+    disableContinue (){
+      this.isContinuable = false;
     },
     endQuestion () {
       this.$store.commit('INCREMENT_CURRENT_QUESTION');

@@ -22,9 +22,11 @@
           <span class="light hairline"> {{ questions.length }} </span>
         </div>
       </div>
-      <div class="buttons">
-        <button @click="$emit('buttonTriggered')" class="light"> <span> WEITER </span> </button>
-      </div>
+      <transition name="fade" mode="out-in" appear>
+        <div v-if="continuable" class="buttons">
+          <button @click="$emit('buttonTriggered')" class="light"> <span> WEITER </span> </button>
+        </div>
+      </transition>
     </div>
 </template>
 
@@ -33,6 +35,7 @@ export default {
   name: 'Question-GUI',
   props: {
     question_id: Number,
+    continuable: Boolean
   },
   data(){
     return {
@@ -103,6 +106,7 @@ export default {
       position: absolute;
       bottom: 2rem;
       right: 3rem;
+      z-index: 10;
     }
   }
   

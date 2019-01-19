@@ -82,6 +82,10 @@
     font-family: "Suisse-Sign";
   }
 
+  b {
+    font-family: 'Suisse-Mono-Bold';
+  }
+
   h1, h2, h3, h4, h5, h6, p, span, a, button, button > span {
     &.light {
       color: $primary-light;
@@ -231,6 +235,8 @@
   .fullscreen {
     display: flex;
     justify-content: center;
+    background: url('./assets/img/background.png');
+    background-size: cover;
     align-items: center;
     .content {
       margin-top: -5.5rem;

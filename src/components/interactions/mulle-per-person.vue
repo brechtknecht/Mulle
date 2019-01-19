@@ -1,8 +1,10 @@
 <template>
   <div class="interaction">
-    <h5 class="light count"> {{ stringToDigitNumber(totalWeight) }} Gramm</h5>
-    <h4 v-if="mulleCount > 1" class="light mulleCount">{{ mulleCount }} Schiffe ins Meer geschmissen</h4>
-    <h4 v-else class="light mulleCount">Wirf so viel weg, wie du glaubst jeden Tag an Gewicht zu verbrauchen.</h4>
+    <div class="display">
+      <h5 class="light count"> <b> {{ stringToDigitNumber(totalWeight) }} </b> Gramm</h5>
+      <h4 v-if="mulleCount > 1" class="light mulleCount">{{ mulleCount }} Schiffe ins Meer geschmissen</h4>
+      <h4 v-else class="light mulleCount">Wirf so viel weg, wie du glaubst jeden Tag an Gewicht zu verbrauchen.</h4>
+    </div>
     <div class="matter-js"></div>
     <transition name="fade" mode="out-in" appear>
       <div class="buttons-inline">
@@ -104,8 +106,18 @@ export default {
       middle_line
     ]);
 
+    var options = {
+      render: {
+        sprite: {
+          texture: 'assets/img/interactions/bottle.png',
+          xScale: 0.1,
+          yScale: 0.1
+        }
+      }
+    };
+
     for(var i = 0; i < 10; i++){
-      this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20));
+      this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20, options));
     }
 
     this.World.add(engine.world, this.objects);
@@ -183,13 +195,13 @@ export default {
             restitution: 0,
             slop:0,
             
-            /*render: {
+            render: {
               sprite: {
                 texture: 'http://döner.jetzt/http-image-resources/texture.png',
                 xScale: scale,
                 yScale: scale
               }
-            }*/
+            }
         })
         objects.push(object);
         this.objects.push(object);
@@ -229,5 +241,10 @@ export default {
   } 
   .mulleCount {
     margin-top: 0;
+  }
+
+  .display {
+    position: relative;
+    top: 3rem;
   }
 </style>

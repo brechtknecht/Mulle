@@ -21,9 +21,6 @@ export default {
       isFilter: true
     }
   },
-  mounted(){
-    console.log()
-  },
   computed: {
     question (){
       let id = parseInt(this.$route.params.question_id);

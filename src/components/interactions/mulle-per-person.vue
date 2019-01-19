@@ -106,18 +106,47 @@ export default {
       middle_line
     ]);
 
+
+    // Coffee cups
     var options = {
       render: {
         sprite: {
-          texture: 'assets/img/interactions/bottle.png',
-          xScale: 0.1,
-          yScale: 0.1
+          texture: 'assets/img/interactions/objects/coffee_s.png',
+          xScale: 1,
+          yScale: 1
         }
       }
     };
-
-    for(var i = 0; i < 10; i++){
+    for(var i = 0; i <= 5; i++){
       this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20, options));
+    }
+
+    // Pizza Box
+    var options = {
+      render: {
+        sprite: {
+          texture: 'assets/img/interactions/objects/pizza_s.png',
+          xScale: 1,
+          yScale: 1
+        }
+      }
+    };
+    for(var i = 0; i <= 5; i++){
+      this.objects.push(this.Bodies.circle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 20, options));
+    }
+
+    // Water Bottle
+    var options = {
+      render: {
+        sprite: {
+          texture: 'assets/img/interactions/objects/bottle_s.png',
+          xScale: 1,
+          yScale: 1
+        }
+      }
+    };
+    for(var i = 0; i <= 5; i++){
+      this.objects.push(this.Bodies.rectangle((i * 40) % this.canvasWidth / 2, (i * 40) % this.canvasHeight, 40, 64, options));
     }
 
     this.World.add(engine.world, this.objects);
@@ -190,14 +219,14 @@ export default {
       var CUBE_COUNT = 1;
 
       for (var i = 0; i < CUBE_COUNT; i++){
-        let object = body.rectangle(this.canvasWidth / 4, 40, 40, 40, { 
+        let object = body.rectangle(this.canvasWidth / 4, 40, 30, 30, { 
             angle: Math.floor((Math.random() * 1) - 45),
             restitution: 0,
             slop:0,
             
             render: {
               sprite: {
-                texture: 'http://döner.jetzt/http-image-resources/texture.png',
+                texture: 'assets/img/interactions/objects/can_s.png',
                 xScale: scale,
                 yScale: scale
               }

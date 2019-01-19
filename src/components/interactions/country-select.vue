@@ -3,7 +3,7 @@
       <transition name="fade-delay" mode="in-out" appear>
         <img class="background-image" src="assets/img/interactions/europe.svg">
       </transition>
-        
+      
     </div>
 </template>
 

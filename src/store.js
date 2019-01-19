@@ -20,6 +20,7 @@ export default new Vuex.Store({
         _id: 1,
         question: 'Wie viel Müll produzierst du am Tag?',
         description: 'Du bekommst gleiche einen Slider angezeigt, mit dem du einschätzen kannst wie viel Müll du am Tag verbrauchst. Schätze dich selbst gut ein, denn am Ende wirst du mit den anderen Nutzern verglichen.',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Jeder Deutsche produziert am Tag ca. 600g Abfall.',
           number: '600g'
@@ -29,6 +30,7 @@ export default new Vuex.Store({
         _id: 2,
         question: 'Wie groß ist der Great Pacific Path?',
         description: 'Falls du nicht weißt um was es hier geht: Der „Great Pacific Garbage Path“ ist die größte Overflächliche Ansammlung von Plastikabfällen aus der ganzen Welt. Schätze bitte in folgendem Beispiel, wie groß dieser Fleck Erde ist.',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Der Great Pacific Path is 4 mal so groß wie Deutschland, also eine Gesamtgröße von 1.600.000 Quadratkilometern',
           number: '1.600.000 Quadratkilometern'
@@ -38,6 +40,7 @@ export default new Vuex.Store({
         _id: 3,
         question: 'Wie lange braucht eine Tüte zum verwesen?',
         description: 'Plastik benötigt eine ziemlich lange Zeit um zu verwesen und sich zu zersetzen. Stell dir vor du hättest in der Vergangenheit eine Plastiktüte gekauft. Wähle in folgendem Beispiel einen Zeitpunkt in der Vergangenheit, an dem du die Tüte gekauft hast, sodass sie bis zum heutigen Tag verrottet ist.',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Du hättest die Tüte in den 1760ern kaufen müssen.',
           number: '1760'
@@ -47,6 +50,7 @@ export default new Vuex.Store({
         _id: 4,
         question: 'Welches Land in Europa erzeugt die meißten Abfälle?',
         description: 'Plastik benötigt eine ziemlich lange Zeit um zu verwesen und sich zu zersetzen. Stell dir vor du hättest in der Vergangenheit eine Plastiktüte gekauft. Wähle in folgendem Beispiel einen Zeitpunkt in der Vergangenheit, an dem du die Tüte gekauft hast, sodass sie bis zum heutigen Tag verrottet ist. ',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Deutschland – mit  220,5 Kilo pro Kopf im Jahr',
           number: 'Deutschland'
@@ -56,6 +60,7 @@ export default new Vuex.Store({
         _id: 5,
         question: 'Wie viel vom existierenden Plastik wird tatsächlich genutzt?',
         description: 'Auf der Welt existiert eine Menge Plastik, in seiner Gesamtheit sind es 8.300.000.000 Tonnen. Schätze mal ein, wie viel von dem Plastik momentan von Menschen im Gebrauch ist und wie viel sich gerade in den Meeren bzw. auf Mülldeponien befindet.',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Vom auf der Welt existierenden Plastik werden tatsächlich nur eine Menge von 60% tatsächlich genutzt. Der Rest befindet sich auf Müllhalden oder im Meer',
           number: '60%'
@@ -65,6 +70,7 @@ export default new Vuex.Store({
         _id: 6,
         question: 'Wie viel Müll landet jährlich in den Weltmeeren?',
         description: 'Gib eine Schätzung ab',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Jedes Jahr gelangen wischen fünf und 15 Millionen Tonnen Müll in die Weltmeere.',
           number: '5 – 15 Millionen'
@@ -74,6 +80,7 @@ export default new Vuex.Store({
         _id: 7,
         question: 'Wo ist unser Müll hin?',
         description: 'Stelle dir vor, wir würden versuchen nach all dem Müll zu suchen, der in den letzten Jahrzehnten in unsere Weltmeere gelangt ist. Gib eine Schätzung an, wie viel Müll wir mit unserem heutigen Wissensstand finden könnten.',
+        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
         answer: {
           string: 'Wir wissen tatsächlich nur von rund einem Prozent, wo sich der Müll befindet. Dieser ist meißt oberflächlich.',
           number: '< 1%'
@@ -86,8 +93,8 @@ export default new Vuex.Store({
           text: 'Deutschland gewinnt die Fußball-Weltmeisterschaft 2014.'
       },
       2000: {
-          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg/2880px-Germany_players_celebrate_winning_the_2014_FIFA_World_Cup.jpg',
-          text: 'Eröffnung der Öresundverbindung zwischen Kopenhagen und Malmö '
+          image: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Stern-Oresund.jpg',
+          text: 'Eröffnung der Öresundverbindung zwischen Kopenhagen und Malmö'
       },
       1968: {
           image: 'https://www.musikexpress.de/wp-content/uploads/2018/04/04/13/martin-luther-king.jpg',
@@ -96,6 +103,14 @@ export default new Vuex.Store({
       1945: {
           image: 'https://www.historyonthenet.com/wp-content/uploads/2014/11/450223-M-0000R-001.jpg',
           text: 'Der 2. Weltkrieg endet'
+      },
+      1917: {
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chateauwood.jpg/1280px-Chateauwood.jpg',
+        text: 'Der 1. Weltkrieg.'
+      },
+      1789: {
+        image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Le_Serment_du_Jeu_de_paume.jpg',
+        text: 'Französische Revolution'
       }
   }
   

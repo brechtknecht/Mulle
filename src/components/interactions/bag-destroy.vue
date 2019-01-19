@@ -26,7 +26,7 @@
         data() {
             return {
                 year: new Date().getFullYear(),
-                currentText: 'Du schaust dir dieses Experiment an',
+                currentText: 'heute',
                 currentImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Litter_on_Singapore%27s_East_Coast_Park.jpg/2880px-Litter_on_Singapore%27s_East_Coast_Park.jpg',
                 options: {
                     data: null,
@@ -36,9 +36,9 @@
                     dotSize: 16,
                     dotHeight: null,
                     dotWidth: null,
-                    min: 1000,
+                    min: 1300,
                     max: 2019,
-                    interval: 50,
+                    interval: 10,
                     show: true,
                     speed: 0.5,
                     disabled: false,
@@ -119,7 +119,7 @@
         position: relative;
         margin: 0 auto;
         bottom: 3rem;
-        width: 400px;
+        width: 500px;
         left: 0;
         right: 0;
     }

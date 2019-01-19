@@ -38,7 +38,6 @@
   .fullscreen {
     padding: 3rem;
     height: calc(100vh - 6rem);
-    background-image: url('./assets/img/background.png');
     background-size: cover;
     background-position: 50% 50%;
     transition: all .7s ease-in-out;

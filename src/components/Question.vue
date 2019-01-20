@@ -115,7 +115,7 @@ export default {
         if(this.userSession.currentQuestion == this.questions.length - 1){
           console.log('✅ End of Questions');
           this.endSurvey();
-          router.push('/start'); 
+          router.push('/evaluation'); 
           return;
         }
 

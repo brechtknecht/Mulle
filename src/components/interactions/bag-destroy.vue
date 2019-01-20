@@ -38,7 +38,7 @@
                     dotWidth: null,
                     min: 1300,
                     max: 2019,
-                    interval: 10,
+                    interval: 5,
                     show: true,
                     speed: 0.5,
                     disabled: false,

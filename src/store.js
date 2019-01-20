@@ -131,7 +131,14 @@ export default new Vuex.Store({
     },
     currentQuestion: state => {
       return state.userSession.currentQuestion;
-    } 
+    },
+    answers: state => {
+      if(state.userSession.isFinished){
+        return state.userSession.answers;
+      } else {
+        return "Survey dosen't seems to be finished ❌ "
+      }
+    }
   },
   mutations: {
     INCREMENT_CURRENT_QUESTION : (state, userSession) => {
@@ -151,14 +158,14 @@ export default new Vuex.Store({
           }
         });
         
+        console.log('Answer commited ✅ – ' + state.userSession.currentAnswer.value + ' ' + state.userSession.currentAnswer.unit);
         
         state.userSession.currentAnswer = {};
-
-        console.log('Answer commited ✅')
       }
     },
     END_SURVEY: (state) => {
       state.userSession.isFinished = true;
+
     }
   },
   actions: {

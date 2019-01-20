@@ -92,7 +92,7 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/07.png',
         answer: {
           string: 'Wir wissen tatsächlich nur von rund einem Prozent, wo sich der Müll befindet. Dieser ist meißt oberflächlich.',
-          number: '< 1',
+          number: '1',
           unit: '%'
         }
       }

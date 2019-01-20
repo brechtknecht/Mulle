@@ -8,15 +8,28 @@
           <h2 class="light question">{{ question.question }}</h2>
           <div>
             <span class="light">Deine Antwort</span>
-            <!-- <h3 class="light"> {{ currentAnswers[index].answer.value }} <span>{{ question.answer.unit }}</span></h3> -->
+             <!-- <h3 class="light">
+               <countTo v-if="index != 3" :startVal='0' :endVal='Math.abs(parseInt(currentAnswers[index].answer.value))' :separator="''" :duration='3000'></countTo>
+               <span v-else> {{ currentAnswers[index].answer.value }} </span>
+               <span class="unit">{{ question.answer.unit }}</span>
+            </h3> -->
           </div>
           <div>
             <span class="light">Durchschnitts Antwort</span>
-            <h3 class="light"> {{ averageValues[index] }} <span>{{ question.answer.unit }}</span></h3>
+
+            <h3 class="light"> 
+              <countTo v-if="index != 3" :startVal='0' :endVal='Math.abs(parseInt(averageValues[index]))' :separator="''" :duration='3000'></countTo>
+              <span v-else>–</span>
+              <span class="unit">{{ question.answer.unit }}</span>
+            </h3>
           </div>
           <div>
             <span class="light">Richtige Antwort</span>
-            <h3 class="light"> {{ question.answer.number }} <span>{{ question.answer.unit }}</span> </h3>
+            <h3 class="light">  
+              <countTo v-if="index != 3" :startVal='0' :endVal='parseInt(question.answer.number)' :separator="''" :duration='3000'></countTo>
+              <span v-else>{{ question.answer.number}}</span>
+              <span class="unit">{{ question.answer.unit }}</span> 
+            </h3>
           </div>
           
         </div>
@@ -32,10 +45,12 @@ import router from '@/router'
 
 import axios from 'axios'
 
+import countTo from 'vue-count-to';
+
 export default {
   name: 'evaluation',
   components: {
-
+    countTo
   },
   data() {
     return {
@@ -79,8 +94,10 @@ export default {
             avg = Math.round(avg);
 
             if(isNaN(avg)){
-              avg = ' – ';
+              avg = 0;
             }
+
+            avg = parseInt(avg);
 
             averages.push(avg);
           }
@@ -118,6 +135,10 @@ export default {
   .fullscreen {
     align-items: initial;
     overflow-y: scroll;
+  }
+
+  .unit {
+    margin-left: -.25rem;
   }
 </style>
 

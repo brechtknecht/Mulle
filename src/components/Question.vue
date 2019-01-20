@@ -37,9 +37,8 @@
           <massComparison />
         </div>
 
-        <div v-else class="answer-debug-panel">
-          <label>Antwort</label>
-          <input placeholder="0" v-model="answer"/> 
+        <div v-else-if="question_id == 6" @continuable="enableContinue">
+          <lostAndFound />
         </div>
 
       </div>
@@ -64,6 +63,7 @@ import mulleDistribution from '@/components/interactions/mulle-distribution.vue'
 import pacificPath from '@/components/interactions/pacificPath.vue';
 import countrySelect from '@/components/interactions/country-select.vue';
 import bagDestroy from '@/components/interactions/bag-destroy.vue';
+import lostAndFound from '@/components/interactions/lost-and-found.vue';
 
 import router from '@/router'
 
@@ -76,7 +76,8 @@ export default {
       mulleDistribution,
       pacificPath,
       countrySelect,
-      bagDestroy
+      bagDestroy,
+      lostAndFound
   },
   props: {
       question_id: Number
@@ -104,14 +105,21 @@ export default {
   },
   methods: {
     nextStep: function() {
-      console.log("Next Step 👍");
+      // console.log("Next Step 👍");
       if(this.state == 'answering'){
         this.$store.commit('PUSH_ANSWER');
       } 
 
       if(this.state == 'answer'){
-        this.endQuestion();
         this.isContinuable = false;
+        if(this.userSession.currentQuestion == this.questions.length - 1){
+          console.log('✅ End of Questions');
+          this.endSurvey();
+          router.push('/start'); 
+          return;
+        }
+
+        this.endQuestion();
         router.push('/question/' + this.userSession.currentQuestion);
       }
 
@@ -123,6 +131,9 @@ export default {
     },
     disableContinue (){
       this.isContinuable = false;
+    },
+    endSurvey(){
+      this.$store.commit('END_SURVEY');
     },
     endQuestion () {
       this.$store.commit('INCREMENT_CURRENT_QUESTION');

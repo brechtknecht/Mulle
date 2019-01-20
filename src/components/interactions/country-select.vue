@@ -2,9 +2,11 @@
     <div>
         <transition name="fade-delay" mode="in-out" appear>
             <div>
-                <h5 v-if="hoveredCountry != String" class="light">{{ hoveredCountry }}</h5>
-                <h5 v-else class="light">Wähle ein Land aus.</h5>
-            <svg width="411px" height="493px" viewBox="2 2 411 493" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <div class="flying">
+                    <h5 v-if="hoveredCountry != String" class="light">{{ hoveredCountry }}</h5>
+                    <h5 v-else class="light">Wähle ein Land aus.</h5>
+                </div>
+            <svg width="600px" height="800px" viewBox="0 0 400 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
                 <title>Group</title>
                 <desc>Created with Sketch.</desc>
@@ -66,23 +68,34 @@
         data() {
             return {
                 hoveredCountry: String,
-                selectedCountry: 'nomansland'
+                selectedCountry: 'nomansland',
+                isLocked: false
             }
         },
         methods: {
             hover(e) {
+                if(this.isLocked) {
+                    return;
+                }
                 var selectedCountry = e.target.id;
                 e.target.setAttribute('fill', 'rgba(255,255,255,.3)');
                 this.hoveredCountry = selectedCountry;
             },
             leave(e) {
+                if(this.isLocked) {
+                    return;
+                }
                 var selectedCountry = e.target.id;
                 e.target.setAttribute('fill', 'transparent');
                 this.hoveredCountry = String;
             },
             click(e) {
+                if(this.isLocked) {
+                    this.isLocked = !this.isLocked;
+                }
                 var selectedCountry = e.target.id;
                 this.selectedCountry = selectedCountry;
+                this.isLocked = !this.isLocked;
     
                 console.log(selectedCountry + ' selected 🗺');
             }
@@ -106,6 +119,12 @@
 </script>
 
 <style lang="scss">
+    .flying {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        right: 0;
+    }
     .background-image {
         position: relative;
         width: 100vw;

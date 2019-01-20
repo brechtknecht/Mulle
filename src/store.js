@@ -80,7 +80,7 @@ export default new Vuex.Store({
         _id: 7,
         question: 'Wo ist unser Müll hin?',
         description: 'Stelle dir vor, wir würden versuchen nach all dem Müll zu suchen, der in den letzten Jahrzehnten in unsere Weltmeere gelangt ist. Gib eine Schätzung an, wie viel Müll wir mit unserem heutigen Wissensstand finden könnten.',
-        background_image: 'https://bilder.t-online.de/b/78/85/05/20/id_78850520/610/tid_da/kultfigur-homer-simpsons-futtert-nun-schon-seit-27-jahren-donuts-.jpg',
+        background_image: 'assets/img/interactions/backgrounds/07.png',
         answer: {
           string: 'Wir wissen tatsächlich nur von rund einem Prozent, wo sich der Müll befindet. Dieser ist meißt oberflächlich.',
           number: '< 1%'
@@ -156,6 +156,9 @@ export default new Vuex.Store({
 
         console.log('Answer commited ✅')
       }
+    },
+    END_SURVEY: (state) => {
+      state.userSession.isFinished = true;
     }
   },
   actions: {

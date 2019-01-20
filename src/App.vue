@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/start">About</router-link>
     </div>-->
-    <router-view/>
+    <transition name="slide-fade" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -15,6 +17,7 @@
   body {
     margin: 0; padding: 0;
     overflow: hidden;
+    background: #2c3e50;
   }
 
   #app {
@@ -80,6 +83,9 @@
 
   h1, h3, h5, h6, span {
     font-family: "Suisse-Sign";
+    span {
+      font-family: "Suisse-Works-Bold";
+    }
   }
 
   b {

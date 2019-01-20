@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import axios from 'axios'
+
 
 Vue.use(Vuex)
 
@@ -24,7 +26,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/01.png',
         answer: {
           string: 'Jeder Deutsche produziert am Tag ca. 600g Abfall.',
-          number: '600g'
+          number: '600',
+          unit: 'g'
         }
       },
       {
@@ -34,7 +37,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/02.png',
         answer: {
           string: 'Der Great Pacific Path is 4 mal so groß wie Deutschland, also eine Gesamtgröße von 1.600.000 Quadratkilometern',
-          number: '1.600.000 Quadratkilometern'
+          number: '4',
+          unit:  'mal Deutschland'
         }
       },
       {
@@ -44,7 +48,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/03.png',
         answer: {
           string: 'Du hättest die Flasche in den 1760ern kaufen müssen.',
-          number: '1760'
+          number: '1760',
+          unit: ''
         }
       },
       {
@@ -54,7 +59,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/04.png',
         answer: {
           string: 'Deutschland – mit  220,5 Kilo pro Kopf im Jahr',
-          number: 'Deutschland'
+          number: 'Deutschland',
+          unit: ''
         }
       },
       {
@@ -64,7 +70,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/05.png',
         answer: {
           string: 'Vom auf der Welt existierenden Plastik werden tatsächlich nur eine Menge von 60% tatsächlich genutzt. Der Rest befindet sich auf Müllhalden oder im Meer',
-          number: '60%'
+          number: '60',
+          unit: '%'
         }
       },
       {
@@ -74,7 +81,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/06.png',
         answer: {
           string: 'Jedes Jahr gelangen wischen fünf und 15 Millionen Tonnen Müll in die Weltmeere.',
-          number: '5 – 15 Millionen'
+          number: '8.000.000',
+          unit: 'Tonnen'
         }
       },
       {
@@ -84,7 +92,8 @@ export default new Vuex.Store({
         background_image: 'assets/img/interactions/backgrounds/07.png',
         answer: {
           string: 'Wir wissen tatsächlich nur von rund einem Prozent, wo sich der Müll befindet. Dieser ist meißt oberflächlich.',
-          number: '< 1%'
+          number: '< 1',
+          unit: '%'
         }
       }
     ],
@@ -166,7 +175,18 @@ export default new Vuex.Store({
     },
     END_SURVEY: (state) => {
       state.userSession.isFinished = true;
-
+      
+      axios.post('http://döner.jetzt:3000/userSessions/', {
+        user_id : state.userSession.user_id,
+        answers : state.userSession.answers,
+        isValid : state.userSession.isFinished
+      })
+      .then(function (response) {
+        console.log('🚀 This data was sent to the Database: ' + response);
+      })
+      .catch(function (error) {
+        console.log('❌ Sending the data somehow fucked up' + error);
+      });
     }
   },
   actions: {

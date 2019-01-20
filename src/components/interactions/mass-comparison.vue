@@ -151,6 +151,13 @@ export default {
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
     }
+  },
+  destroyed() {
+    var Runner = this.Runner;
+    var engine = this.engine;
+    setTimeout(function(){ 
+      Runner.stop(engine)
+    }, 2000, Runner, engine);
   }
 }
 </script>

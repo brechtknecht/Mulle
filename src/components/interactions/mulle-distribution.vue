@@ -167,13 +167,12 @@ export default {
     stringToDigitNumber (number) {
       return number.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
     },
-    destroyed() {
+    destroyed() {
+      var Runner = this.Runner;
+      var engine = this.engine;
       setTimeout(function(){ 
-      this.render.canvas.remove();
-      this.render.canvas = null;
-      this.render.context = null;
-      this.render.textures = {};
-    }, 2000);
+        Runner.stop(engine)
+      }, 2000, Runner, engine);
     }
   }
 }

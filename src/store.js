@@ -38,11 +38,11 @@ export default new Vuex.Store({
       },
       {
         _id: 3,
-        question: 'Wie lange braucht eine Tüte zum verwesen?',
-        description: 'Plastik benötigt eine ziemlich lange Zeit um zu verwesen und sich zu zersetzen. Stell dir vor du hättest in der Vergangenheit eine Plastiktüte gekauft. Wähle in folgendem Beispiel einen Zeitpunkt in der Vergangenheit, an dem du die Tüte gekauft hast, sodass sie bis zum heutigen Tag verrottet ist.',
+        question: 'Wie lange braucht eine PET Flasche zum verwesen?',
+        description: 'Plastik benötigt eine ziemlich lange Zeit um sich wieder zu zersetzen. Stell dir vor du hättest in der Vergangenheit eine PET Flasche gekauft. Wähle in folgendem Beispiel einen Zeitpunkt in der Vergangenheit, an dem du die Flasche gekauft haben müsstest, sodass sie bis zum heutigen Tag verrottet wäre.',
         background_image: 'assets/img/interactions/backgrounds/03.png',
         answer: {
-          string: 'Du hättest die Tüte in den 1760ern kaufen müssen.',
+          string: 'Du hättest die Flasche in den 1760ern kaufen müssen.',
           number: '1760'
         }
       },

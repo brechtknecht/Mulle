@@ -210,11 +210,22 @@
     text-transform: uppercase;
     padding: 1rem 2.5rem;
     border: 1px solid;
-    border-radius: 4px;
+    border-radius: 8px;
     background: transparent;
     text-decoration: none;
     outline: 0;
     cursor: pointer;
+    transition: all 300ms ease;
+    &:hover {
+        background: #fff;
+        color: $primary-dark !important;
+        -webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.16);
+        -moz-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.16);
+        box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.16);
+        span {
+          color: $primary-dark !important;
+        }
+    }
     &.down {
       margin-top: 36rem;
     }

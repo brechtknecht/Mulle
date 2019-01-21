@@ -266,6 +266,10 @@
       max-width: 670px;
     }
   }
+
+  .unit {
+    margin-left: -.25rem;
+  }
 </style>
 
 <style lang="scss">

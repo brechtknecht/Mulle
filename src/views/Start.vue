@@ -11,7 +11,7 @@
       <div v-if="state == 'introduction'" class="content" key="introduction">
         <img src="../assets/img/introduction/iceberg.png">
         <p class="light line-before">
-          Unsere Welt ist in Gefahr und es ist wichtig, dass jeder von unserer und allen kommenden Generationen daran beteiligt sind, die Welt zu einem besseren Ort zu machen. In dieser interaktiven Datenvisualisierung möchten wir dich sensilibisieren für das was Gang und Gebe ist und woran wir alle noch arbeiten können.
+          Unsere Welt ist in Gefahr und es ist wichtig, dass jeder von unserer und allen kommenden Generationen daran beteiligt sind, die Welt zu einem besseren Ort zu machen. In dieser interaktiven Datenvisualisierung möchten wir dich sensilibisieren für das, was Gang und Gebe ist und woran wir alle noch arbeiten können.
         </p>
         <button @click="nextStep" class="light"> <span> WEITER </span> </button>
       </div>
@@ -19,7 +19,7 @@
       <div v-if="state == 'begin'" class="content" key="next">
         <h1 class="light"> Beginnen wir mit dem Test </h1>
         <p class="light">
-          Teste dich selbst und vergleiche dich mit anderen. Erfahre Fakten die dir so noch gar nicht bewusst waren. Die Idee von diesem Test ist allerdings nicht irgendjemanden zu beängstigen. Vielmehr geht es darum zu sensibilisieren. Wir können alle einen klaren, faktenorientierten Blick auf diese Thematik gut gebrauchen, denn vieles ist nicht bekannt.
+          Teste dich selbst und vergleiche dich mit anderen. Erfahre Fakten die dir so noch gar nicht bewusst waren. Die Idee von diesem Test ist allerdings nicht irgendjemanden zu beängstigen. Vielmehr geht es darum, zu sensibilisieren. Wir können alle einen klaren, faktenorientierten Blick auf diese Thematik gut gebrauchen, denn vieles ist nicht bekannt.
         </p>
         <router-link to="/question/0">
           <button @click="nextStep" class="light"> <span> Auf Geht's </span> </button>

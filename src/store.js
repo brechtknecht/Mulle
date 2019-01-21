@@ -22,7 +22,7 @@ export default new Vuex.Store({
       {
         _id: 1,
         question: 'Wie viel Müll produzierst du am Tag?',
-        description: 'Du bekommst gleiche einen Slider angezeigt, mit dem du einschätzen kannst wie viel Müll du am Tag verbrauchst. Schätze dich selbst gut ein, denn am Ende wirst du mit den anderen Nutzern verglichen.',
+        description: "Schätze ein, wie viel Müll du am Tag wegwirfst. In der Interaktion befindet sich auf der linken Seite der Müll, den du wegwerfen kannst und auf der rechten dein imaginärer Mülleimer. Probier's einfach aus.",
         background_image: 'assets/img/interactions/backgrounds/01.png',
         answer: {
           string: 'Jeder Deutsche produziert am Tag ca. 600g Abfall.',
@@ -33,7 +33,7 @@ export default new Vuex.Store({
       {
         _id: 2,
         question: 'Wie groß ist der Great Pacific Path?',
-        description: 'Falls du nicht weißt um was es hier geht: Der „Great Pacific Garbage Path“ ist die größte Overflächliche Ansammlung von Plastikabfällen aus der ganzen Welt. Schätze bitte in folgendem Beispiel, wie groß dieser Fleck Erde ist.',
+        description: 'Falls du nicht weißt um was es hier geht: Der „Great Pacific Garbage Path“ ist die größte oberflächige Ansammlung von Plastikabfällen aus der ganzen Welt. Schätze bitte in folgendem Beispiel, wie groß dieser Fleck Erde ist.',
         background_image: 'assets/img/interactions/backgrounds/02.png',
         answer: {
           string: 'Der Great Pacific Path is 4 mal so groß wie Deutschland, also eine Gesamtgröße von 1.600.000 Quadratkilometern',
@@ -55,7 +55,7 @@ export default new Vuex.Store({
       {
         _id: 4,
         question: 'Welches Land in Europa erzeugt die meißten Abfälle?',
-        description: 'Plastik benötigt eine ziemlich lange Zeit um zu verwesen und sich zu zersetzen. Stell dir vor du hättest in der Vergangenheit eine Plastiktüte gekauft. Wähle in folgendem Beispiel einen Zeitpunkt in der Vergangenheit, an dem du die Tüte gekauft hast, sodass sie bis zum heutigen Tag verrottet ist. ',
+        description: '',
         background_image: 'assets/img/interactions/backgrounds/04.png',
         answer: {
           string: 'Deutschland – mit  220,5 Kilo pro Kopf im Jahr',
@@ -69,8 +69,8 @@ export default new Vuex.Store({
         description: 'Auf der Welt existiert eine Menge Plastik, in seiner Gesamtheit sind es 8.300.000.000 Tonnen. Schätze mal ein, wie viel von dem Plastik momentan von Menschen im Gebrauch ist und wie viel sich gerade in den Meeren bzw. auf Mülldeponien befindet.',
         background_image: 'assets/img/interactions/backgrounds/05.png',
         answer: {
-          string: 'Vom auf der Welt existierenden Plastik werden tatsächlich nur eine Menge von 60% tatsächlich genutzt. Der Rest befindet sich auf Müllhalden oder im Meer',
-          number: '60',
+          string: 'Vom auf der Welt existierenden Plastik werden tatsächlich nur eine Menge von 40% tatsächlich genutzt. Der Rest befindet sich auf Müllhalden oder im Meer',
+          number: '40',
           unit: '%'
         }
       },
@@ -80,8 +80,8 @@ export default new Vuex.Store({
         description: 'Gib eine Schätzung ab',
         background_image: 'assets/img/interactions/backgrounds/06.png',
         answer: {
-          string: 'Jedes Jahr gelangen wischen fünf und 15 Millionen Tonnen Müll in die Weltmeere.',
-          number: '8.000.000',
+          string: 'Jedes Jahr gelangen zwischen fünf und 15 Millionen Tonnen Müll in die Weltmeere.',
+          number: '8000000',
           unit: 'Tonnen'
         }
       },
@@ -121,6 +121,10 @@ export default new Vuex.Store({
       1917: {
         image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Chateauwood.jpg/1280px-Chateauwood.jpg',
         text: 'Der 1. Weltkrieg.'
+      },
+      1847: {
+        image: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Jesse-james-home1.jpg',
+        text: 'Jesse James macht den Wilden Westen unsicher.'
       },
       1789: {
         image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Le_Serment_du_Jeu_de_paume.jpg',

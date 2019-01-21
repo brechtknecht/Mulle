@@ -8,7 +8,7 @@
           <h2 class="light question">{{ question.question }}</h2>
           <div>
             <span class="light">Deine Antwort</span>
-            <h3 class="light">
+            <h3 class="light padding">
                  <countTo 
                     v-if="index != 3" 
                     :startVal='0' 
@@ -23,7 +23,7 @@
           <div>
             <span class="light">Durchschnitts Antwort</span>
   
-            <h3 class="light">
+            <h3 class="light padding">
               <countTo 
                 v-if="index != 3" 
                 :startVal='0' 
@@ -36,7 +36,7 @@
             </h3>
           </div>
           <div>
-            <span class="light">Richtige Antwort</span>
+            <span class="light padding">Richtige Antwort</span>
             <h3 class="light">
               <countTo 
                 v-if="index != 3" 
@@ -139,10 +139,17 @@
 </script>
 
 <style lang="scss" scoped>
+  h3 {
+    font-size: 2.57rem;
+  }
+  .padding {
+    padding: 0 2rem;
+  }
   .question {
     max-height: 300px;
     grid-row: 1 / span 1;
     grid-column: 1 / span 3;
+    padding: 0 1.5rem;
   }
   
   .evaluation--question {
@@ -156,10 +163,6 @@
   .fullscreen {
     align-items: initial;
     overflow-y: scroll;
-  }
-  
-  .unit {
-    margin-left: -.25rem;
   }
 </style>
 

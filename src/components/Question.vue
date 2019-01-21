@@ -43,7 +43,7 @@
 
       </div>
       <div v-if="state == 'answer'" class="content answer" key="answer">
-        <h3 class="light"> {{ currentQuestion.answer.string }} </h3>
+        <h2 class="light" style="line-height: 2.57rem"> {{ currentQuestion.answer.string }} </h2>
         <h5 class="light"> 
           Deine Antwort: 
           {{ stringToDigitNumber(userSession.answers[userSession.currentQuestion].answer.value) }}

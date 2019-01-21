@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="interaction">
-            <h5 class="light">Wie viel Prozent von unseren Müll ist schon 'verloren'?</h5>
+            <h5 class="light">Wie viel Prozent von unseren Müll könnten wir theoretisch finden?</h5>
             <div class="slider">
                 <vue-slider ref="slider" v-model="found" v-bind="options"></vue-slider>
             </div>

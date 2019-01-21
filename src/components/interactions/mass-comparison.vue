@@ -115,7 +115,7 @@ export default {
             
             render: {
               sprite: {
-                texture: 'http://döner.jetzt/http-image-resources/texture.png',
+                texture: 'assets/img/texture.png',
                 xScale: scale,
                 yScale: scale
               }

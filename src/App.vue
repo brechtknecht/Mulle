@@ -17,7 +17,7 @@
   body {
     margin: 0; padding: 0;
     overflow: hidden;
-    background: #2c3e50;
+    background: #1E1E1E;
   }
 
   #app {
@@ -78,7 +78,7 @@
 
   // Colors
   $primary-light: #FFEEEA;
-  $primary-dark: #1E1E1E;
+  $primary-dark: #1E1E1E; 
   $test: red;
 
   h1, h3, h5, h6, span {
@@ -86,6 +86,10 @@
     span {
       font-family: "Suisse-Works-Bold";
     }
+  }
+
+  a {
+    text-decoration: none;
   }
 
   b {

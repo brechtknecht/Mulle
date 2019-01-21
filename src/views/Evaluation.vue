@@ -2,7 +2,7 @@
   <div :class="{filter: isFilter}" class="fullscreen">
     <transition name="fade" mode="out-in" appear>
       <div class="evaluation">
-        <!-- <h1>{{currentAnswers}}</h1> -->
+        <h1 class="light">Auswertung</h1>
   
         <div v-for="(question, index) in correctAnswers" class="evaluation--question" :key="question.question._id">
           <h2 class="light question">{{ question.question }}</h2>
@@ -148,6 +148,7 @@
   .evaluation--question {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40vh 0px;
     align-items: center;
     height: 100%;
   }

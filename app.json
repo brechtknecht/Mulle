@@ -1,0 +1,5 @@
+{
+    "name": "mulle-survey",
+    "script": "npm",
+    "args": "serve"
+  }

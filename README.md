@@ -1,4 +1,4 @@
-# mulle-application
+# Waste the planet survey
 
 ## Project setup
 ```
